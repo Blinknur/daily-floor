@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#efe9dc" />
+  <title>The Daily Floor — Live edition</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="paper-grain" aria-hidden="true"></div>
+
+  <div class="page">
+    <div class="topline">
+      <span>Vol. IV &middot; No. 298</span>
+      <span>Northgate Central &middot; Level 1</span>
+      <span>Sunday, 25 October 2026</span>
+      <span class="topline-right">
+        <span class="live-dot"></span>
+        <span id="editionState">Live edition</span>
+        <button class="text-control" id="pauseLive" type="button">Pause</button>
+      </span>
+    </div>
+
+    <header class="masthead">
+      <div class="ear ear-left">
+        <span class="ear-rule"></span>
+        <p>The store, reported<br />as it happens.</p>
+        <span class="ear-small">Founded 2022 &middot; Independent</span>
+      </div>
+      <h1>The Daily Floor</h1>
+      <div class="ear ear-right">
+        <span class="ear-rule"></span>
+        <p><span id="mastheadClock">18:42:08</span><br /><span class="ear-small">PKT &middot; Late edition</span></p>
+        <span class="ear-small">Weather: busy, 48 in store</span>
+      </div>
+    </header>
+
+    <nav class="section-nav" aria-label="Sections">
+      <a href="#front" class="is-current">Front page</a>
+      <a href="#floor">The floor</a>
+      <a href="#customer">The customer</a>
+      <a href="#safety">Safety desk</a>
+      <a href="#cameras">Camera desk</a>
+      <span class="nav-live"><span id="navInStore">48</span> in store &middot; <span id="navTraffic">+14.8%</span> traffic</span>
+    </nav>
+
+    <div class="wire" aria-label="Live wire">
+      <div class="wire-label"><span class="live-dot"></span>Live wire</div>
+      <div class="wire-track" id="wireTrack">
+        <span><b>18:42</b> Fitting queue 7 &middot; wait 7:40</span>
+        <span><b>18:41</b> Spill reported, Aisle 4</span>
+        <span><b>18:39</b> Conversion 24.1% &middot; &minus;2.3 pts</span>
+        <span><b>18:36</b> Window stops 46 &middot; +18%</span>
+      </div>
+      <span class="wire-updated">Updated <span id="wireAge">0s</span> ago</span>
+    </div>
+
+    <main id="front">
+      <section class="front-grid">
+        <article class="lead-story">
+          <div class="section-kicker">The big story <span>/ Fitting room</span></div>
+          <h2>
+            <span class="headline-small">The front door is working.</span>
+            <span class="headline-large">The fitting room<br />is losing the sale.</span>
+          </h2>
+          <p class="deck">Footfall is up 14.8% and the new window is pulling people in. But the queue behind the curtain peaked at 7 minutes 40 seconds, and 11 shoppers left before they tried anything on.</p>
+          <div class="byline">By the floor desk <span>&middot;</span> 18:42 PKT <span>&middot;</span> <span class="byline-live"><span class="live-dot"></span>Live</span></div>
+
+          <div class="story-body">
+            <p class="dropcap">At 16:12 the store held 48 people. The window had stopped 46 in the previous hour, the denim table was the busiest square metre on the floor, and the fitting room had two rooms in use. By 16:40, seven people were waiting. Eleven left the queue before their turn.</p>
+            <p>The store did not have a traffic problem. It had a throughput problem. Capture is running at 19.6%, just under the 20% target, and the window is doing its job. The leak is further in: only 31% of engaged shoppers reached a fitting room, down from 38% on the four-week average.</p>
+            <blockquote>&ldquo;We had one person on fitting and a queue of seven. It wasn&rsquo;t a traffic problem; it was a coverage problem.&rdquo;<cite>Floor lead, 17:20</cite></blockquote>
+            <p>The cost is visible in the conversion line: 24.1% against a 26.4% baseline, a gap of 2.3 points &mdash; 55 purchases at today&rsquo;s traffic. The queue is not the whole gap, but it is the most fixable part: 11 shoppers left before trying anything on. The fix is not more cameras. It is one associate, in the right place, for two hours.</p>
+          </div>
+
+          <div class="story-action">
+            <span>The fix</span>
+            <p>Move one associate to fitting, 16:00&ndash;18:00. Open the third room. Replenish sizes 28 and 30. Expected: wait below 5:00 and 6&ndash;8 recovered try&#8209;ons.</p>
+          </div>
+
+          <div class="story-foot">
+            <span>Continued in <a href="#floor">The Floor</a></span>
+            <span class="folio">1A</span>
+          </div>
+        </article>
+
+        <figure class="hero-plate">
+          <div class="plate plate-hero">
+            <canvas id="heroCamera" aria-label="Live illustrated view of the fitting room queue"></canvas>
+            <div class="plate-screen" aria-hidden="true"></div>
+            <div class="plate-top"><span>CAM 04 / FITTING ROOM</span><span class="plate-live"><i></i>Live</span></div>
+            <div class="plate-bottom"><span id="heroQueueLabel">7 waiting &middot; 2 rooms in use</span><span id="heroClock">18:42:08</span></div>
+          </div>
+          <figcaption><strong>The queue behind the curtain.</strong> Seven shoppers waited for two fitting rooms at 18:41. The queue has not fallen below six since 16:40.</figcaption>
+          <div class="photo-credit">Camera 04 &middot; anonymous aggregate &middot; no facial recognition</div>
+          <div class="plate-margin-note">The most expensive square metre in the store is not on the shop floor. It is the 2.4 metres between the fitting-room curtain and the queue.</div>
+        </figure>
+
+        <aside class="stop-press" aria-label="Stop press">
+          <div class="stop-head"><span>Stop press</span><span>18:42</span></div>
+
+          <article class="stop-item urgent" data-stop="safety">
+            <div class="stop-meta"><span class="stop-tag">Safety</span><span>2 min ago</span></div>
+            <h3>Spill on Aisle 4. No cone on the floor.</h3>
+            <p>Safety desk flagged. Camera 03 has the hazard in view. One customer has already stepped around it.</p>
+            <span class="stop-status red">Unresolved</span>
+          </article>
+
+          <article class="stop-item">
+            <div class="stop-meta"><span class="stop-tag">Fitting room</span><span>Live</span></div>
+            <h3 id="stopFittingHeadline">Seven waiting. Two rooms in use.</h3>
+            <p>Wait is 7:40 against a 5:00 target. The queue has crossed the red line twice this hour.</p>
+            <span class="stop-status amber">Action required</span>
+          </article>
+
+          <article class="stop-item quiet">
+            <div class="stop-meta"><span class="stop-tag">Till</span><span>Live</span></div>
+            <h3 id="stopTillHeadline">Four waiting at Checkout 2.</h3>
+            <p>Average wait 2:18. Backup till is staffed but not open.</p>
+            <span class="stop-status">Watch</span>
+          </article>
+
+          <article class="stop-item quiet">
+            <div class="stop-meta"><span class="stop-tag">Window</span><span>Last hour</span></div>
+            <h3>46 stops. 22 entered denim.</h3>
+            <p>The new window is the strongest performer this month.</p>
+            <span class="stop-status green">Working</span>
+          </article>
+
+          <div class="boss-call" id="bossCall">
+            <div class="boss-call-label">The boss&rsquo;s call</div>
+            <h3>Move one associate to fitting, 16:00&ndash;18:00.</h3>
+            <p>Expected result: wait below 5:00 and 6&ndash;8 recovered try-ons. This is the only approval needed today.</p>
+            <button class="approve-button" id="approveButton" type="button">Approve coverage</button>
+            <div class="approval-stamp" id="approvalStamp" aria-live="polite">Pending</div>
+            <span class="demo-action">Demo action &middot; no live staff system connected</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="numbers-strip" aria-label="Key numbers">
+        <div class="numbers-title">By the numbers <span>Today vs. four-week same-weekday average</span></div>
+        <div class="number-grid">
+          <div class="number-item"><span>Entered</span><strong id="numEntered">2,418</strong><small class="up">+14.8%</small></div>
+          <div class="number-item"><span>Capture</span><strong id="numCapture">19.6%</strong><small>target 20%</small></div>
+          <div class="number-item"><span>Fitting wait</span><strong id="numFitting">7:40</strong><small class="down">target &lt; 5:00</small></div>
+          <div class="number-item"><span>Conversion</span><strong id="numConversion">24.1%</strong><small class="down">&minus;2.3 pts</small></div>
+          <div class="number-item"><span>In store</span><strong id="numInStore">48</strong><small>capacity 120</small></div>
+        </div>
+      </section>
+
+      <section class="inside-grid">
+        <article class="floor-article" id="floor">
+          <div class="section-head">
+            <h3>The Floor</h3>
+            <span>Live heat &middot; 18:30&ndash;18:42</span>
+          </div>
+          <div class="floor-map" id="storeMap"></div>
+          <div class="floor-notes">
+            <div><span class="note-label">Hot</span><strong>Denim table</strong><span>3:12 dwell &middot; 22% of traffic</span></div>
+            <div><span class="note-label">Dead</span><strong>Occasionwear</strong><span>0:24 dwell &middot; 4% of traffic</span></div>
+            <div><span class="note-label">Cameras</span><strong>6 of 6 live</strong><span>0 offline &middot; 1 privacy mask</span></div>
+          </div>
+        </article>
+
+        <article class="customer-article" id="customer">
+          <div class="section-head">
+            <h3>The Customer</h3>
+            <span>Anonymous aggregate &middot; 18:00&ndash;18:42</span>
+          </div>
+          <div class="demo-head">
+            <div class="demo-big">58<span>%</span></div>
+            <div class="demo-copy"><strong>estimated women</strong><span>39% men &middot; 3% unclear</span><small>1,284 observations &middot; ±5.2 pts</small></div>
+          </div>
+          <div class="gender-bar" aria-label="Estimated gender split">
+            <span class="g-women" style="width:58%"></span><span class="g-men" style="width:39%"></span><span class="g-unclear" style="width:3%"></span>
+          </div>
+          <div class="gender-key"><span><i class="k-women"></i>Women 58%</span><span><i class="k-men"></i>Men 39%</span><span><i class="k-unclear"></i>Unclear 3%</span></div>
+
+          <h4 class="subhead">Age, estimated</h4>
+          <div class="age-chart" id="ageChart"></div>
+          <p class="demo-insight"><strong>25&ndash;34 is the fitting room&rsquo;s best customer.</strong> They are 31% of traffic but 44% of try-ons. The queue is costing you your highest-intent group.</p>
+          <p class="method-note">Estimates use anonymised upper-body features and aggregate counts. No face templates, no identity, no individual labels. Appearance is not identity.</p>
+        </article>
+
+        <article class="safety-article" id="safety">
+          <div class="section-head red">
+            <h3>Safety Desk</h3>
+            <span>2 open &middot; 3 resolved today</span>
+          </div>
+
+          <div class="safety-lead">
+            <div class="safety-lead-top"><span class="hazard-code">H-041</span><span class="hazard-time">18:40</span></div>
+            <h4>Spill, Aisle 4</h4>
+            <p>Liquid on the floor near the denim table. No cone, no sign. Camera 03 is tracking foot traffic around the hazard.</p>
+            <div class="stamp unresolved">Unresolved</div>
+            <div class="safety-actions"><button type="button" class="safety-button" id="dispatchButton">Dispatch floor lead</button><span id="dispatchNote">Not dispatched</span></div>
+          </div>
+
+          <div class="hazard-list">
+            <div class="hazard-row"><span class="hazard-dot amber"></span><div><strong>Fitting room 3</strong><span>Hanger on floor &middot; 18:22</span></div><span class="hazard-state">Resolved</span></div>
+            <div class="hazard-row"><span class="hazard-dot green"></span><div><strong>Fire exit</strong><span>Stock cage moved &middot; 18:31</span></div><span class="hazard-state">Cleared</span></div>
+            <div class="hazard-row"><span class="hazard-dot green"></span><div><strong>Unattended bag</strong><span>Owner identified &middot; 18:26</span></div><span class="hazard-state">Cleared</span></div>
+            <div class="hazard-row"><span class="hazard-dot green"></span><div><strong>Falls detected</strong><span>None today</span></div><span class="hazard-state">0</span></div>
+          </div>
+
+          <div class="safety-score"><span>Safety score</span><strong>94</strong><small>/ 100</small><span class="score-note">Last check 18:30</span></div>
+        </article>
+      </section>
+
+      <section class="camera-desk" id="cameras">
+        <div class="section-head camera-head">
+          <h3>The Camera Desk</h3>
+          <span><span class="live-dot"></span>6 of 6 cameras live &middot; full coverage &middot; click any plate to enlarge</span>
+        </div>
+        <div class="camera-strip">
+          <button class="camera-card" data-cam="window" type="button">
+            <span class="mini-plate"><canvas id="camWindow"></canvas><span class="plate-screen"></span><span class="mini-live"><i></i>01</span><span class="mini-count" data-count="window">12</span></span>
+            <span class="camera-caption"><strong>Window</strong><span>46 stops / hr</span></span>
+          </button>
+          <button class="camera-card" data-cam="entrance" type="button">
+            <span class="mini-plate"><canvas id="camEntrance"></canvas><span class="plate-screen"></span><span class="mini-live"><i></i>02</span><span class="mini-count" data-count="entrance">8</span></span>
+            <span class="camera-caption"><strong>Entrance</strong><span>2,418 entered</span></span>
+          </button>
+          <button class="camera-card" data-cam="floor" type="button">
+            <span class="mini-plate"><canvas id="camFloor"></canvas><span class="plate-screen"></span><span class="mini-live"><i></i>03</span><span class="mini-count" data-count="floor">18</span></span>
+            <span class="camera-caption"><strong>Floor</strong><span>Denim 3:12</span></span>
+          </button>
+          <button class="camera-card" data-cam="fitting" type="button">
+            <span class="mini-plate"><canvas id="camFitting"></canvas><span class="plate-screen"></span><span class="mini-live alert"><i></i>04</span><span class="mini-count alert" data-count="fitting">7</span></span>
+            <span class="camera-caption"><strong>Fitting</strong><span>7 waiting</span></span>
+          </button>
+          <button class="camera-card" data-cam="till" type="button">
+            <span class="mini-plate"><canvas id="camTill"></canvas><span class="plate-screen"></span><span class="mini-live"><i></i>05</span><span class="mini-count" data-count="till">4</span></span>
+            <span class="camera-caption"><strong>Till</strong><span>4 waiting</span></span>
+          </button>
+          <button class="camera-card" data-cam="stock" type="button">
+            <span class="mini-plate"><canvas id="camStock"></canvas><span class="plate-screen"></span><span class="mini-live"><i></i>06</span><span class="mini-count" data-count="stock">2</span></span>
+            <span class="camera-caption"><strong>Stockroom</strong><span>Door closed</span></span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="folio-footer">
+      <span>The Daily Floor &middot; Northgate Central</span>
+      <span>Late edition &middot; Vol. IV, No. 298 &middot; Page 1</span>
+      <span>Demo edition &middot; simulated data &middot; no PII</span>
+    </footer>
+  </div>
+
+  <div class="modal" id="cameraModal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div><span class="modal-kicker">Contact print</span><h2 id="modalTitle">Camera 04 / Fitting room</h2><p id="modalSub">Live feed &middot; 7 waiting</p></div>
+        <button class="modal-close" type="button" data-close-modal aria-label="Close camera">Close</button>
+      </div>
+      <div class="modal-plate"><canvas id="modalCamera"></canvas><span class="plate-screen"></span></div>
+      <div class="modal-caption" id="modalCaption"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
